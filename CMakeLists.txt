@@ -158,6 +158,36 @@ create_target_launcher(tutorial06_keyboard_and_mouse WORKING_DIRECTORY "${CMAKE_
 # Tutorial 7
 add_executable(ProjetOGL
 	ProjetOGL/ProjetOGL.cpp
+	ProjetOGL/Object.cpp
+	ProjetOGL/Object.h
+	ProjetOGL/GameObject.h
+	ProjetOGL/GameObject.cpp
+	ProjetOGL/Transform.h
+	ProjetOGL/Transform.cpp
+	ProjetOGL/Renderer.h
+	ProjetOGL/Renderer.cpp
+	ProjetOGL/Sphere.h
+	ProjetOGL/Sphere.cpp
+	ProjetOGL/Cube.h
+	ProjetOGL/Cube.cpp
+	ProjetOGL/SphereCollider.h
+	ProjetOGL/SphereCollider.cpp
+	ProjetOGL/BoxCollider.h
+	ProjetOGL/BoxCollider.cpp
+	ProjetOGL/Collider.h
+	ProjetOGL/Collider.cpp
+	ProjetOGL/Engine.h
+	ProjetOGL/Engine.cpp
+	ProjetOGL/Solveur.h
+	ProjetOGL/Solveur.cpp
+	ProjetOGL/Component.h
+	ProjetOGL/Component.cpp
+	ProjetOGL/MonoBehaviour.h
+	ProjetOGL/MonoBehaviour.cpp
+	ProjetOGL/Player.h
+	ProjetOGL/Player.cpp
+	ProjetOGL/Arena.h
+	ProjetOGL/Arena.cpp
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
