@@ -1,5 +1,6 @@
 #include "Engine.h"
 
+Engine* Engine::instance = nullptr;
 Engine::Engine() {}
 Engine::~Engine() {
 	for (size_t i = 0; i < monobehaviours.size(); i++) {
