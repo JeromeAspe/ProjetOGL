@@ -62,6 +62,10 @@ add_definitions(
 	-D_CRT_SECURE_NO_WARNINGS
 )
 
+	
+	SET(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_EXE_LINKER_FLAGS} /SAFESEH:NO")
+	SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
+	SET(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /SAFESEH:NO")
 # Tutorial 1
 add_executable(tutorial01_first_window 
 	tutorial01_first_window/tutorial01.cpp
@@ -218,6 +222,7 @@ target_link_libraries(ProjetOGL
 	enet.lib
 	ws2_32.lib
 	winmm.lib
+	"-SAFESEH:NO"
 )
 # Xcode and Visual working directories
 set_target_properties(ProjetOGL PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ProjetOGL/")
