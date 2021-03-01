@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Renderer.h"
 #include "Transform.h"
+#include <common/objloader.hpp>
 
 class GameObject : public Object
 {
@@ -9,10 +10,12 @@ protected:
 	std::string objectPath = "";
 	Renderer* renderer = nullptr;
 	Transform* transform = nullptr;
+
+	
 public:
 #pragma region Constructors
 	GameObject(std::string _objectPath,Renderer* _renderer,Transform* _transform);
-	GameObject(std::string _objectPath,Renderer* _renderer,glm::vec3 _position,glm::vec4 _rotation, glm::vec3 _scale);
+	GameObject(std::string _objectPath,Renderer* _renderer,const glm::vec3& _position, const glm::vec4& _rotation, const  glm::vec3& _scale);
 	
 #pragma endregion
 

@@ -10,9 +10,9 @@ private:
 	float playerSpeed = 1;
 public:
 	Player();
-	Player(GameObject _gameObject);
+	Player(GameObject* _gameObject);
 	Player(std::string _nickname, float _speed);
-	Player(std::string _nickname, float _speed, GameObject _gameObject);
+	Player(std::string _nickname, float _speed, GameObject* _gameObject);
 	~Player();
 };
 

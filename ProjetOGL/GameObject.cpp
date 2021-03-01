@@ -5,13 +5,16 @@ GameObject::GameObject( std::string _objectPath, Renderer* _renderer, Transform*
 	objectPath = _objectPath;
 	renderer = _renderer;
 	transform = _transform;
+	loadOBJ(_objectPath.c_str(), _renderer->GetVertices(), _renderer->GetUvs(), _renderer->GetNormals());
+	
 }
 
-GameObject::GameObject( std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec4 _rotation, glm::vec3 _scale) : Object()
+GameObject::GameObject( std::string _objectPath, Renderer* _renderer, const glm::vec3& _position, const glm::vec4& _rotation, const glm::vec3& _scale) : Object()
 {
 	objectPath = _objectPath;
 	renderer = _renderer;
 	transform = new Transform(_position,_rotation,_scale);
+	loadOBJ(_objectPath.c_str(), _renderer->GetVertices(), _renderer->GetUvs(), _renderer->GetNormals());
 }
 
 GameObject::~GameObject()

@@ -6,7 +6,7 @@ class MonoBehaviour : public Component
 {
 public :
 	MonoBehaviour();
-	MonoBehaviour(GameObject _gameObject);
+	MonoBehaviour(GameObject* _gameObject);
 	~MonoBehaviour();
 };
 

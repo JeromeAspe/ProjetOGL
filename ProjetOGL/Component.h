@@ -5,12 +5,12 @@
 class Component : public Object
 {
 private:
-	GameObject gameObject;
+	GameObject* gameObject;
 public:
 	Component();
-	Component(GameObject _gameObject);
+	Component(GameObject* _gameObject);
 	~Component();
 
-	GameObject GetGameObject();
+	GameObject* GetGameObject();
 };
 

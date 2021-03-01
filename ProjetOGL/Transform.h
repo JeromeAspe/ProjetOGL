@@ -11,24 +11,24 @@ protected:
 
 public:
 #pragma region Constructors
-	Transform(glm::vec3 _position, glm::vec4 _rotation, glm::vec3 _scale);
+	Transform(const glm::vec3& _position, const glm::vec4& _rotation, const glm::vec3& _scale);
 #pragma endregion
 
 #pragma region Getters
 
-	glm::vec3 GetPosition();
+	glm::vec3& GetPosition();
 
-	glm::vec4 GetRotation();
+	glm::vec4& GetRotation();
 
-	glm::vec3 GetScale();
+	glm::vec3& GetScale();
 #pragma endregion
 
 #pragma region Setters
-	virtual void SetPosition(glm::vec3 _position);
+	virtual void SetPosition(const glm::vec3& _position);
 
-	virtual void SetRotation(glm::vec4 _rotation);
+	virtual void SetRotation(const glm::vec4& _rotation);
 
-	virtual void SetScale(glm::vec3 _scale);
+	virtual void SetScale(const glm::vec3& _scale);
 
 #pragma endregion
 };
