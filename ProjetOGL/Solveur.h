@@ -2,6 +2,8 @@
 
 class Solveur
 {
-
+public:
+	Solveur();
+	~Solveur();
 };
 
