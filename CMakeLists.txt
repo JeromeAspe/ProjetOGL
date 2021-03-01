@@ -39,8 +39,10 @@ include_directories(
 	external/glew-1.13.0/include/
 	external/assimp-3.0.1270/include/
 	external/bullet-2.81-rev2613/src/
+	
 	.
 )
+
 
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
@@ -188,6 +190,11 @@ add_executable(ProjetOGL
 	ProjetOGL/Player.cpp
 	ProjetOGL/Arena.h
 	ProjetOGL/Arena.cpp
+	ProjetOGL/ENet.cpp
+	ProjetOGL/ENet.h
+	ProjetOGL/ClientInfo.h
+	ProjetOGL/PacketData.cpp
+	ProjetOGL/PacketData.h
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
