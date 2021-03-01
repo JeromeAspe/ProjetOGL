@@ -19,6 +19,11 @@ public:
 #pragma region Destructors
 	~GameObject();
 #pragma endregion 
+
+#pragma region Getters
+	Renderer* GetRenderer();
+	Transform* GetTransform();
+#pragma endregion
 	//TODO 
 	void AddComponent();
 };

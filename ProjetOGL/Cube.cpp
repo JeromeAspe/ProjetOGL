@@ -10,6 +10,11 @@ Cube::Cube(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, gl
 	collider = new BoxCollider();
 }
 
+BoxCollider* Cube::GetCollider()
+{
+	return collider;
+}
+
 Cube::~Cube()
 {
 	delete(collider);

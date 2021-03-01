@@ -10,6 +10,11 @@ Sphere::Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position
 	collider = new SphereCollider();
 }
 
+SphereCollider* Sphere::GetCollider()
+{
+	return collider;
+}
+
 Sphere::~Sphere()
 {
 	delete(collider);

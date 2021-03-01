@@ -19,3 +19,13 @@ GameObject::~GameObject()
 	delete(renderer);
 	delete(transform);
 }
+
+Renderer* GameObject::GetRenderer()
+{
+	return renderer;
+}
+
+Transform* GameObject::GetTransform()
+{
+	return transform;
+}
