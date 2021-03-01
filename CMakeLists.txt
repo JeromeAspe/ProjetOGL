@@ -39,10 +39,14 @@ include_directories(
 	external/glew-1.13.0/include/
 	external/assimp-3.0.1270/include/
 	external/bullet-2.81-rev2613/src/
+	external/enet-1.3.17/include
 	
 	.
 )
 
+link_directories(
+	external/enet-1.3.17/
+)
 
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
@@ -209,6 +213,11 @@ add_executable(ProjetOGL
 )
 target_link_libraries(ProjetOGL
 	${ALL_LIBS}
+)
+target_link_libraries(ProjetOGL
+	enet.lib
+	ws2_32.lib
+	winmm.lib
 )
 # Xcode and Visual working directories
 set_target_properties(ProjetOGL PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ProjetOGL/")
