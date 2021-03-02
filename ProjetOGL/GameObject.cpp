@@ -9,7 +9,7 @@ GameObject::GameObject( std::string _objectPath, Renderer* _renderer, Transform*
 	
 }
 
-GameObject::GameObject( std::string _objectPath, Renderer* _renderer, const glm::vec3& _position, const glm::vec4& _rotation, const glm::vec3& _scale) : Object()
+GameObject::GameObject( std::string _objectPath, Renderer* _renderer, const glm::vec3& _position, const glm::vec3& _rotation, const glm::vec3& _scale) : Object()
 {
 	objectPath = _objectPath;
 	renderer = _renderer;

@@ -5,7 +5,7 @@ Sphere::Sphere(std::string _objectPath, Renderer* _renderer, Transform* _transfo
 	collider = new SphereCollider();
 }
 
-Sphere::Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec4 _rotation, glm::vec3 _scale) : GameObject(_objectPath, _renderer, _position, _rotation, _scale)
+Sphere::Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale) : GameObject(_objectPath, _renderer, _position, _rotation, _scale)
 {
 	collider = new SphereCollider();
 }

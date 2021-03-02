@@ -10,7 +10,7 @@ protected:
 public :
 #pragma region Constructors
 	Sphere(std::string _objectPath, Renderer* _renderer, Transform* _transform);
-	Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec4 _rotation, glm::vec3 _scale);
+	Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale);
 #pragma endregion
 
 #pragma region Getters

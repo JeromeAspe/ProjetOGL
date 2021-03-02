@@ -15,7 +15,7 @@ protected:
 public:
 #pragma region Constructors
 	GameObject(std::string _objectPath,Renderer* _renderer,Transform* _transform);
-	GameObject(std::string _objectPath,Renderer* _renderer,const glm::vec3& _position, const glm::vec4& _rotation, const  glm::vec3& _scale);
+	GameObject(std::string _objectPath,Renderer* _renderer,const glm::vec3& _position, const glm::vec3& _rotation, const  glm::vec3& _scale);
 	
 #pragma endregion
 
