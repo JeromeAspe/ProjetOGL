@@ -4,7 +4,7 @@
 
 class Component : public Object
 {
-private:
+protected:
 	GameObject* gameObject;
 public:
 	Component();

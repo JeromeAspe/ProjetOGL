@@ -11,12 +11,21 @@ using namespace glm;
 
 glm::mat4 ViewMatrix;
 glm::mat4 ProjectionMatrix;
+glm::vec3 MovementVector;
 
 glm::mat4 getViewMatrix(){
 	return ViewMatrix;
 }
 glm::mat4 getProjectionMatrix(){
 	return ProjectionMatrix;
+}
+
+glm::vec3 getMovementVector()
+{
+	if (glm::length(MovementVector) > .1f) {
+		return glm::normalize(MovementVector) * .1f;
+	}
+	return MovementVector;
 }
 
 
@@ -69,23 +78,43 @@ void computeMatricesFromInputs(){
 	);
 	
 	// Up vector
-	glm::vec3 up = glm::cross( right, direction );
+	glm::vec3 up = glm::cross(right, direction);
 
 	// Move forward
-	if (glfwGetKey( window, GLFW_KEY_UP ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		position += direction * deltaTime * speed;
 	}
 	// Move backward
-	if (glfwGetKey( window, GLFW_KEY_DOWN ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 		position -= direction * deltaTime * speed;
 	}
+	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+		position += glm::vec3(0, 1, 0) * deltaTime * speed;
+	}
+	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+		position -= glm::vec3(0, 1, 0) * deltaTime * speed;
+	}
 	// Strafe right
-	if (glfwGetKey( window, GLFW_KEY_RIGHT ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		position += right * deltaTime * speed;
 	}
 	// Strafe left
-	if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		position -= right * deltaTime * speed;
+	}
+	MovementVector = vec3(0);
+	//Player Movement
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+		MovementVector.z += .1;
+	}
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		MovementVector.z -= .1;
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+		MovementVector.x -= .1;
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+		MovementVector.x += .1;
 	}
 
 	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
