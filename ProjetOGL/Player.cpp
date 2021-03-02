@@ -13,10 +13,21 @@ Player::Player(std::string _nickname, float _speed, GameObject* _gameObject) : M
 }
 void Player::Update()
 {
-	speedVector += ((getMovementVector() * playerSpeed) / 144.0f);
+	// glfwGetTime is called only once, the first time this function is called
+	static double lastTime = glfwGetTime();
+
+	// Compute time difference between current and last frame
+	double currentTime = glfwGetTime();
+	float deltaTime = float(currentTime - lastTime);
+
+
+	speedVector += ((getMovementVector() * playerSpeed) * deltaTime);
 	speedVector -= (speedVector * frotemments);
 	glm::vec3 _finalPosition = gameObject->GetTransform()->GetPosition() + speedVector;
 	gameObject->GetTransform()->SetPosition(_finalPosition);
+
+
+	lastTime = currentTime;
 }
 Player::~Player() {
 
