@@ -53,3 +53,18 @@ std::vector<glm::vec3>& Renderer::GetNormals()
 {
 	return normals;
 }
+
+GLuint& Renderer::GetVerticesBuffer()
+{
+	return verticesBuffer;
+}
+
+GLuint& Renderer::GetUvBuffer()
+{
+	return uvBuffer;
+}
+
+GLuint& Renderer::GetNormalsBuffer()
+{
+	return normalsBuffer;
+}

@@ -39,6 +39,10 @@ public :
 	std::vector<glm::vec2>& GetUvs();
 	std::vector<glm::vec3>& GetNormals();
 
+	GLuint& GetVerticesBuffer();
+	GLuint& GetUvBuffer();
+	GLuint& GetNormalsBuffer();
+
 #pragma endregion
 
 
