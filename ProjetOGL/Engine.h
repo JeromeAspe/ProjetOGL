@@ -11,10 +11,10 @@ private:
 	GLFWwindow* window = nullptr;
 	static Engine* instance;
 public:
-	Engine(GLFWwindow* _window, GLuint _programID);
+	Engine();
 	~Engine();
 
-	void Update();
+	void Update(GLFWwindow* _window, GLuint& _programID);
 	void UpdateBehaviours();
 	void UpdateObjects();
 	void AddMonoBehaviours(MonoBehaviour* _behaviour, int& _index);

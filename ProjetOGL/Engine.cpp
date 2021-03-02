@@ -1,9 +1,8 @@
 #include "Engine.h"
 
 Engine* Engine::instance = nullptr;
-Engine::Engine(GLFWwindow* _window, GLuint _programID) {
-	window = _window;
-	programID = _programID;
+Engine::Engine() {
+	
 }
 Engine::~Engine() {
 	for (size_t i = 0; i < monobehaviours.size(); i++) {
@@ -15,8 +14,10 @@ Engine::~Engine() {
 	delete(window);
 }
 
-void Engine::Update()
+void Engine::Update(GLFWwindow* _window, GLuint& _programID)
 {
+	window = _window;
+	programID = _programID;
 	UpdateBehaviours();
 	UpdateObjects();
 }
