@@ -1,9 +1,4 @@
 #include "Transform.h"
-
-#include <GL/glew.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
 
 #include <common/controls.hpp>
@@ -52,9 +47,9 @@ void Transform::UpdateTransform(const GLuint& _matrixID)
 	glm::mat4 ModelMatrix = glm::mat4(1.0);
 	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
-	MVP = translate(MVP, m_position);
-	MVP = rotate<float>(MVP, 0, m_rotation);
-	MVP = scale(MVP, m_scale);
+	MVP = glm::translate(MVP, m_position);
+	MVP = glm::rotate<float>(MVP, 0, m_rotation);
+	MVP = glm::scale(MVP, m_scale);
 
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
