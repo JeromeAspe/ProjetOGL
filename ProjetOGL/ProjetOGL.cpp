@@ -28,7 +28,7 @@ int main( void )
 {
 	
 	Engine* _engine = new Engine();
-	Renderer* _renderer = new Renderer(_engine->GetTextureID(), "uvmap.DDS");
+	Renderer* _renderer = new Renderer(_engine->GetTextureID(), "raimbow.DDS");
 	GameObject* _a = new GameObject("cube.obj", _renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
 	GameObject* _b = new GameObject("cube.obj", _renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
 	Arena* _arena = new Arena();

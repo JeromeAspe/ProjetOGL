@@ -8,7 +8,7 @@ Arena::~Arena() {
 }
 
 void Arena::GenerateArena() {
-	Renderer* _renderer = new Renderer(Engine::GetInstance()->GetTextureID(), "uvmap.DDS");
+	Renderer* _renderer = new Renderer(Engine::GetInstance()->GetTextureID(), "raimbow.DDS");
 
 	
 
