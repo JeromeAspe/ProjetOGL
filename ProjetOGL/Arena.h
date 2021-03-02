@@ -1,6 +1,6 @@
 #define ARENA_SIZE 20
 #define ARENA_WALL_HEIGHT 2
-#define ARENA_WALL_WIDTH
+#define ARENA_WALL_WIDTH 1
 
 #pragma once
 #include <vector>
