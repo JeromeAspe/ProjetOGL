@@ -203,6 +203,8 @@ add_executable(ProjetOGL
 	ProjetOGL/ClientInfo.h
 	ProjetOGL/PacketData.cpp
 	ProjetOGL/PacketData.h
+	ProjetOGL/Bounds.h
+	ProjetOGL/Bounds.cpp
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
