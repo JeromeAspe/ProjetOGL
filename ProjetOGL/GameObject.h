@@ -27,6 +27,8 @@ public:
 	Renderer* GetRenderer();
 	Transform* GetTransform();
 #pragma endregion
+
+	void Update();
 	//TODO 
 	void AddComponent();
 };
