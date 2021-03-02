@@ -45,6 +45,10 @@ public :
 
 #pragma endregion
 
+#pragma region Update
+	void Update();
+#pragma endregion
+
 
 };
 
