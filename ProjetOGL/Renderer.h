@@ -1,7 +1,7 @@
 #pragma once
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
-#include <GL/glew.h>
 #include <common/texture.hpp>
 #include <string>
 #include <vector>
