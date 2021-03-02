@@ -7,7 +7,7 @@ class Engine
 private:
 	std::vector<MonoBehaviour*> monobehaviours;
 	std::vector<GameObject*> gameobjects;
-	GLuint programID = 0;
+	GLuint programID ;
 	GLuint MatrixID;
 	GLFWwindow* window = nullptr;
 	static Engine* instance;
@@ -20,6 +20,8 @@ public:
 	void UpdateObjects();
 	void AddMonoBehaviours(MonoBehaviour* _behaviour, int& _index);
 	void RemoveMonoBehaviour(int& _index);
+	void AddGameObject(GameObject* _object, int& _index);
+	void RemoveGameObject(int& _index);
 
 	static Engine* GetInstance();
 };

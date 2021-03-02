@@ -10,6 +10,7 @@ protected:
 	std::string objectPath = "";
 	Renderer* renderer = nullptr;
 	Transform* transform = nullptr;
+	int indexEngine = -1;
 
 	
 public:

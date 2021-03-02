@@ -42,13 +42,14 @@ void Transform::SetScale(const glm::vec3&  _scale)
 
 void Transform::UpdateTransform(const GLuint& _matrixID)
 {
+	computeMatricesFromInputs();
 	glm::mat4 ProjectionMatrix = getProjectionMatrix();
 	glm::mat4 ViewMatrix = getViewMatrix();
 	glm::mat4 ModelMatrix = glm::mat4(1.0);
 	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	MVP = glm::translate(MVP, m_position);
-	MVP = glm::rotate<float>(MVP, 0, m_rotation);
+	MVP = glm::rotate<float>(MVP, 1.59f, m_rotation);
 	MVP = glm::scale(MVP, m_scale);
 
 	// Send our transformation to the currently bound shader, 

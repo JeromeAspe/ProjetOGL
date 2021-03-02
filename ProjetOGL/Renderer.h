@@ -12,9 +12,9 @@ protected:
 	GLuint textureID = 0;
 	GLuint texture = 0;
 	
-	GLuint verticesBuffer = 0;
-	GLuint uvBuffer = 0;
-	GLuint normalsBuffer = 0;
+	GLuint verticesBuffer;
+	GLuint uvBuffer;
+	GLuint normalsBuffer;
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
@@ -44,6 +44,7 @@ public :
 	GLuint& GetNormalsBuffer();
 
 #pragma endregion
+
 
 #pragma region Update
 	void Update();

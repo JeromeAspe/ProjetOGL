@@ -20,6 +20,9 @@ using namespace glm;
 #include <common/controls.hpp>
 #include <common/objloader.hpp>
 
+//#include "GameObject.h"
+#include "Engine.h"
+
 int main( void )
 {
 
@@ -84,7 +87,7 @@ int main( void )
 	GLuint programID = LoadShaders( "TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader" );
 
 	// Get a handle for our "MVP" uniform
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	//GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 
 	// Load the texture
 	GLuint Texture = loadDDS("uvmap.DDS");
@@ -92,8 +95,12 @@ int main( void )
 	// Get a handle for our "myTextureSampler" uniform
 	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
 
+	Engine* _engine = new Engine();
+	Renderer* _renderer = new Renderer(TextureID, "uvmap.DDS");
+	GameObject* _a = new GameObject("cube.obj", _renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	GameObject* _b = new GameObject("cube.obj", _renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
 	// Read our .obj file
-	std::vector<glm::vec3> vertices;
+	/*std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals; // Won't be used at the moment.
 	bool res = loadOBJ("cube.obj", vertices, uvs, normals);
@@ -108,10 +115,11 @@ int main( void )
 	GLuint uvbuffer;
 	glGenBuffers(1, &uvbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);*/
 
 	do{
-
+		_engine->Update(window, programID);
+		/*
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -167,17 +175,17 @@ int main( void )
 
 		// Swap buffers
 		glfwSwapBuffers(window);
-		glfwPollEvents();
-
+		glfwPollEvents();*/
+		
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
 		   glfwWindowShouldClose(window) == 0 );
 
 	// Cleanup VBO and shader
-	glDeleteBuffers(1, &vertexbuffer);
-	glDeleteBuffers(1, &uvbuffer);
+	//glDeleteBuffers(1, &vertexbuffer);
+	//glDeleteBuffers(1, &uvbuffer);
 	glDeleteProgram(programID);
-	glDeleteTextures(1, &Texture);
+	//glDeleteTextures(1, &Texture);
 	glDeleteVertexArrays(1, &VertexArrayID);
 
 	// Close OpenGL window and terminate GLFW

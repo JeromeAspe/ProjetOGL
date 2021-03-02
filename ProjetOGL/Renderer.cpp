@@ -11,7 +11,7 @@ Renderer::Renderer(GLuint& _textureID, std::string _name)
 {
 	textureID = _textureID;
 	texture = loadDDS(_name.c_str());
-	Init();
+	//Init();
 }
 
 void Renderer::Init()
@@ -79,6 +79,7 @@ void Renderer::Update()
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, verticesBuffer);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STREAM_DRAW);
 	glVertexAttribPointer(
 		0,                  // attribute
 		3,                  // size
@@ -98,7 +99,7 @@ void Renderer::Update()
 		GL_FALSE,                         // normalized?
 		0,                                // stride
 		(void*)0                          // array buffer offset
-	);
+	);;
 	// 3rd attribute buffer : Normals
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, normalsBuffer);

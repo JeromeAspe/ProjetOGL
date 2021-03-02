@@ -2,7 +2,8 @@
 
 Engine* Engine::instance = nullptr;
 Engine::Engine() {
-	MatrixID = glGetUniformLocation(programID, "MVP");
+	
+	instance = this;
 }
 Engine::~Engine() {
 	for (size_t i = 0; i < monobehaviours.size(); i++) {
@@ -16,8 +17,10 @@ Engine::~Engine() {
 
 void Engine::Update(GLFWwindow* _window, GLuint& _programID)
 {
+
 	window = _window;
 	programID = _programID;
+	MatrixID = glGetUniformLocation(programID, "MVP");
 	UpdateBehaviours();
 	UpdateObjects();
 }
@@ -31,8 +34,9 @@ void Engine::UpdateBehaviours() {
 void Engine::UpdateObjects()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glUseProgram(programID);
+	
 	for (int i = 0; i < gameobjects.size(); i++) {
+		glUseProgram(programID);
 		gameobjects[i]->Update(MatrixID);
 	}
 	glfwSwapBuffers(window);
@@ -46,6 +50,18 @@ void Engine::AddMonoBehaviours(MonoBehaviour* _behaviour, int & _index) {
 
 void Engine::RemoveMonoBehaviour(int& _index) {
 	monobehaviours[_index]->OnDestroy();
+}
+
+void Engine::AddGameObject(GameObject* _object, int& _index)
+{
+	
+	gameobjects.push_back(_object);
+	_index = gameobjects.size();
+}
+
+void Engine::RemoveGameObject(int& _index)
+{
+	 //TODO
 }
 
 Engine* Engine::GetInstance()

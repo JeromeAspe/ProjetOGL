@@ -1,7 +1,10 @@
 #include "GameObject.h"
+#include "Engine.h"
+
 
 GameObject::GameObject( std::string _objectPath, Renderer* _renderer, Transform* _transform) : Object()
 {
+	Engine::GetInstance()->AddGameObject(this, indexEngine);
 	objectPath = _objectPath;
 	renderer = _renderer;
 	transform = _transform;
@@ -11,10 +14,13 @@ GameObject::GameObject( std::string _objectPath, Renderer* _renderer, Transform*
 
 GameObject::GameObject( std::string _objectPath, Renderer* _renderer, const glm::vec3& _position, const glm::vec3& _rotation, const glm::vec3& _scale) : Object()
 {
+	Engine::GetInstance()->AddGameObject(this, indexEngine);
 	objectPath = _objectPath;
 	renderer = _renderer;
+	
 	transform = new Transform(_position,_rotation,_scale);
 	loadOBJ(_objectPath.c_str(), _renderer->GetVertices(), _renderer->GetUvs(), _renderer->GetNormals());
+	renderer->Init();
 }
 
 GameObject::~GameObject()
