@@ -32,3 +32,9 @@ Transform* GameObject::GetTransform()
 {
 	return transform;
 }
+
+void GameObject::Update()
+{
+	//Transform Update
+	renderer->Update();
+}
