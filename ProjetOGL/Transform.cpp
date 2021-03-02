@@ -49,7 +49,7 @@ void Transform::UpdateTransform(const GLuint& _matrixID)
 	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
 	MVP = glm::translate(MVP, m_position);
-	MVP = glm::rotate<float>(MVP, 1.59f, m_rotation);
+	//MVP = glm::rotate<float>(MVP, 1.59f, m_rotation);
 	MVP = glm::scale(MVP, m_scale);
 
 	// Send our transformation to the currently bound shader, 

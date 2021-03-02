@@ -100,7 +100,7 @@ void Renderer::Update()
 		0,                                // stride
 		(void*)0                          // array buffer offset
 	);;
-	// 3rd attribute buffer : Normals
+	/*// 3rd attribute buffer : Normals
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, normalsBuffer);
 	glVertexAttribPointer(
@@ -110,7 +110,7 @@ void Renderer::Update()
 		GL_FALSE,                         // normalized?
 		0,                                // stride
 		(void*)0                          // array buffer offset
-	);
+	);*/
 
 	// Draw the triangle !
 	glDrawArrays(GL_TRIANGLES, 0, vertices.size());

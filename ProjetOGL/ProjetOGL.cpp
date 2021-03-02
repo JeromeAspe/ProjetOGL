@@ -22,6 +22,7 @@ using namespace glm;
 
 //#include "GameObject.h"
 #include "Engine.h"
+#include "Arena.h"
 
 int main( void )
 {
@@ -30,6 +31,7 @@ int main( void )
 	Renderer* _renderer = new Renderer(_engine->GetTextureID(), "uvmap.DDS");
 	GameObject* _a = new GameObject("cube.obj", _renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
 	GameObject* _b = new GameObject("cube.obj", _renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	Arena* _arena = new Arena();
 	
 	_engine->Update();
 		
