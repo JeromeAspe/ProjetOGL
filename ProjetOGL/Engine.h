@@ -8,6 +8,7 @@ private:
 	std::vector<MonoBehaviour*> monobehaviours;
 	std::vector<GameObject*> gameobjects;
 	GLuint programID = 0;
+	GLuint MatrixID;
 	GLFWwindow* window = nullptr;
 	static Engine* instance;
 public:

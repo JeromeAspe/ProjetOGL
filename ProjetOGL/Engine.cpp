@@ -2,7 +2,7 @@
 
 Engine* Engine::instance = nullptr;
 Engine::Engine() {
-	
+	MatrixID = glGetUniformLocation(programID, "MVP");
 }
 Engine::~Engine() {
 	for (size_t i = 0; i < monobehaviours.size(); i++) {
@@ -33,7 +33,7 @@ void Engine::UpdateObjects()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(programID);
 	for (int i = 0; i < gameobjects.size(); i++) {
-		gameobjects[i]->Update();
+		gameobjects[i]->Update(MatrixID);
 	}
 	glfwSwapBuffers(window);
 	glfwPollEvents();

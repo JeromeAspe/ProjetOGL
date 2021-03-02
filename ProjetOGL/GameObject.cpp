@@ -33,8 +33,8 @@ Transform* GameObject::GetTransform()
 	return transform;
 }
 
-void GameObject::Update()
+void GameObject::Update(const GLuint& _matrixID)
 {
-	//Transform Update
+	transform->UpdateTransform(_matrixID);
 	renderer->Update();
 }

@@ -28,7 +28,7 @@ public:
 	Transform* GetTransform();
 #pragma endregion
 
-	void Update();
+	void Update(const GLuint& _matrixID);
 	//TODO 
 	void AddComponent();
 };
