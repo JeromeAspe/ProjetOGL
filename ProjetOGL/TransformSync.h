@@ -7,6 +7,7 @@ class TransformSync : MonoBehaviour
 protected :
 	bool isMine = false;
 	ENet* reseau = nullptr;
+	int photonID = 0;
 public :
 
 	TransformSync(bool _isMine, ENet* _reseau);

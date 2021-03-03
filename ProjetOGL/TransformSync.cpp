@@ -1,6 +1,8 @@
 #include "TransformSync.h"
 #include "PacketDataJSon.h"
 #include "json.hpp"
+#include <random>
+#include <ctime>
 
 TransformSync::TransformSync(bool _isMine, ENet* _reseau)
 {
@@ -12,6 +14,8 @@ TransformSync::TransformSync(bool _isMine, ENet* _reseau, GameObject* _object) :
 {
 	isMine = _isMine;
 	reseau = _reseau;
+	srand(time(NULL));
+	photonID = static_cast<float>(std::rand()) * static_cast<float>(std::rand());
 }
 
 void TransformSync::Update()
@@ -23,7 +27,7 @@ void TransformSync::UpdatePosition()
 {
 	if (isMine) {
 		PacketDataJSon _packet;
-		json::JSON _json = json::Array(gameObject->GetTransform()->GetPosition().x, gameObject->GetTransform()->GetPosition().y, gameObject->GetTransform()->GetPosition().z, gameObject->GetIndexEngine());
+		json::JSON _json = json::Array(gameObject->GetTransform()->GetPosition().x, gameObject->GetTransform()->GetPosition().y, gameObject->GetTransform()->GetPosition().z, photonID);
 		//json::JSON _json = json::JSON(true);
 		_packet.SetJsonContent(_json.dump().c_str());
 		if (_packet.IsValid()) {
