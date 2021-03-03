@@ -190,6 +190,8 @@ add_executable(ProjetOGL
 	ProjetOGL/Engine.cpp
 	ProjetOGL/Solveur.h
 	ProjetOGL/Solveur.cpp
+	ProjetOGL/PlayerManager.h
+	ProjetOGL/PlayerManager.cpp
 	ProjetOGL/Component.h
 	ProjetOGL/Component.cpp
 	ProjetOGL/MonoBehaviour.h
