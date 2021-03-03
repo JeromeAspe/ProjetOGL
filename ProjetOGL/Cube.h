@@ -12,6 +12,7 @@ public :
 #pragma region Constructors
 	Cube(Renderer* _renderer, Transform* _transform);
 	Cube(Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale);
+	Cube(std::string _texturePath, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale);
 #pragma endregion
 
 #pragma region Getters

@@ -10,6 +10,11 @@ Cube::Cube(Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::v
 	collider = new BoxCollider();
 }
 
+Cube::Cube(std::string _texturePath, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale) : GameObject("cube.obj",_texturePath,_position,_rotation,_scale)
+{
+	collider = new BoxCollider();
+}
+
 BoxCollider* Cube::GetCollider()
 {
 	return collider;

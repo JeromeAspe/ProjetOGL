@@ -31,9 +31,9 @@ int main( void )
 {
 	
 	Engine* _engine = new Engine();
-	Renderer* _renderer = new Renderer(_engine->GetTextureID(), "raimbow.DDS");
-	Cube* _b = new Cube(_renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
-	Sphere* _a = new Sphere(_renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	//Renderer* _renderer = new Renderer(_engine->GetTextureID(), "raimbow.DDS");
+	Cube* _b = new Cube("raimbow.DDS", vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	Sphere* _a = new Sphere("raimbow.DDS", vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
 
 	Player* _player = new Player(_a);
 	Arena* _arena = new Arena();

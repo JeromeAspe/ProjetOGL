@@ -23,6 +23,17 @@ GameObject::GameObject( std::string _objectPath, Renderer* _renderer, const glm:
 	renderer->Init();
 }
 
+GameObject::GameObject(std::string _objectPath, std::string _texturePath, const glm::vec3& _position, const glm::vec3& _rotation, const glm::vec3& _scale)
+{
+	Engine::GetInstance()->AddGameObject(this, indexEngine);
+	objectPath = _objectPath;
+	renderer = new Renderer(Engine::GetInstance()->GetTextureID(),_texturePath);
+
+	transform = new Transform(_position, _rotation, _scale);
+	loadOBJ(_objectPath.c_str(), renderer->GetVertices(), renderer->GetUvs(), renderer->GetNormals());
+	renderer->Init();
+}
+
 GameObject::~GameObject()
 {
 	delete(renderer);

@@ -11,6 +11,7 @@ public :
 #pragma region Constructors
 	Sphere(Renderer* _renderer, Transform* _transform);
 	Sphere(Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale);
+	Sphere(std::string _texturePath, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale);
 #pragma endregion
 
 #pragma region Getters

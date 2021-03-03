@@ -10,6 +10,11 @@ Sphere::Sphere(Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, gl
 	collider = new SphereCollider();
 }
 
+Sphere::Sphere(std::string _texturePath, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale) : GameObject("Sphere.obj", _texturePath, _position, _rotation, _scale)
+{
+	collider = new SphereCollider();
+}
+
 SphereCollider* Sphere::GetCollider()
 {
 	return collider;
