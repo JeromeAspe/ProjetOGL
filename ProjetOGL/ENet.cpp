@@ -224,7 +224,7 @@ void ENet::Update()
 	ENetEvent event;
 
 	/* Wait up to 1000 milliseconds for an event. */
-	enet_uint32 timeOutValue = 1000; // that many ms before time out
+	enet_uint32 timeOutValue = 0; // that many ms before time out
 	if (enet_host_service(m_host, &event, timeOutValue) > 0)
 	{
 		fprintf(stderr, "Event RECEIVED !!\n");

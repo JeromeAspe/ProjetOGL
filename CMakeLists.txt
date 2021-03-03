@@ -205,6 +205,8 @@ add_executable(ProjetOGL
 	ProjetOGL/PacketData.h
 	ProjetOGL/Bounds.h
 	ProjetOGL/Bounds.cpp
+	ProjetOGL/PacketDataJSon.cpp
+	ProjetOGL/PacketDataJSon.h
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
