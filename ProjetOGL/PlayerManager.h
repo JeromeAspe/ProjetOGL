@@ -15,8 +15,8 @@ protected:
 	std::vector<Sphere*> players;
 
 public:
-	static PlayerManager& Instance();
-	void UpdatePosition(glm::vec3 _pos);
+	static PlayerManager Instance();
+	void UpdatePosition(int _id, glm::vec3 _pos);
 
 
 };
