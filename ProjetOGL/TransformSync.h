@@ -8,6 +8,7 @@ protected :
 	bool isMine = false;
 	ENet* reseau = nullptr;
 	int photonID = 0;
+	float timer = 0;
 public :
 
 	TransformSync(bool _isMine, ENet* _reseau);
@@ -18,6 +19,7 @@ public :
 	void UpdatePosition();
 	void UpdateElement(glm::vec3 _position);
 
+	void UpdateTimer();
 	ENet* GetReseau();
 	int GetID();
 	bool IsMine();

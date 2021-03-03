@@ -30,7 +30,7 @@ TransformSync::TransformSync(bool _isMine, int _id, ENet* _reseau, GameObject* _
 
 void TransformSync::Update()
 {
-	UpdatePosition();
+	UpdateTimer();
 }
 
 void TransformSync::UpdatePosition()
@@ -47,8 +47,13 @@ void TransformSync::UpdatePosition()
 		if (_packet.IsValid()) {
 			unsigned int  taille = 0;
 			void* data = _packet.Serialize(taille);
+			if (reseau->IsClient()) {
+				reseau->SendPacket(false, _packet.GetContent());
+			}
+			if (reseau->IsServer()) {
+				reseau->BroadcastPacket(false, _packet.GetContent());
+			}
 			
-			reseau->BroadcastPacket(false, _packet.GetContent());
 			//_packet.Deserialize(data, taille);
 			//json::JSON _converted = json::JSON::Load(_packet.GetContent());
 			//printf("%d\n", _converted["id"]);
@@ -61,6 +66,23 @@ void TransformSync::UpdatePosition()
 void TransformSync::UpdateElement(glm::vec3 _position)
 {
 	gameObject->GetTransform()->SetPosition(_position);
+}
+
+void TransformSync::UpdateTimer()
+{
+	static double lastTime = glfwGetTime();
+	
+	// Compute time difference between current and last frame
+	double currentTime = glfwGetTime();
+	float deltaTime = float(currentTime - lastTime);
+	timer += deltaTime;
+	
+	if (timer > 0.5f) {
+		printf("%f\n", timer);
+		UpdatePosition();
+		timer = 0;
+	}
+	lastTime = currentTime;
 }
 
 ENet* TransformSync::GetReseau()

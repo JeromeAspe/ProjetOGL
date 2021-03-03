@@ -67,7 +67,7 @@ int ENet::ConnectClient()
 
 	// Connection to localHost, obviously
 	// some work needed if the server is not local host :)
-	enet_address_set_host(&address, "127.0.0.1");
+	enet_address_set_host(&address, "192.168.1.145");
 	address.port = 1234;
 
 	/* Initiate the connection, allocating the two channels 0 and 1. */
@@ -301,7 +301,7 @@ void ENet::ReceiveData(const ENetEvent &event)
 {
 	ClientInfo *client = static_cast<ClientInfo *>(event.peer->data);
 	const char *sender = client ? client->m_clientName.c_str() : "Server";
-
+	printf("received\n");
 	PacketData packetData;
 	packetData.Deserialize(event.packet->data, event.packet->dataLength);
 	if (packetData.IsValid()) {
