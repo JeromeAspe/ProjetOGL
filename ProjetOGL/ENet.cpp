@@ -3,6 +3,8 @@
 
 #include "ENet.h"
 #include "PacketData.h"
+#include "json.hpp"
+#include "PlayerManager.h"
 
 ENet::ENet()
 {
@@ -184,6 +186,16 @@ void ENet::CleanUpServer()
 	m_host = nullptr;
 }
 
+std::string ENet::ConvertPacket(glm::vec3 _pos, int id)
+{
+	json::JSON _json = json::Object();
+	_json["x"] = _pos.x;//json::Array(gameObject->GetTransform()->GetPosition().x, gameObject->GetTransform()->GetPosition().y, gameObject->GetTransform()->GetPosition().z, photonID);
+	_json["y"] = _pos.y;
+	_json["z"] = _pos.z;
+	_json["id"] = id;
+	return _json.dump();
+}
+
 void ENet::SendPacket(bool _reliable, const char *_dataStr)
 {
 	PacketData packetData;
@@ -203,6 +215,7 @@ void ENet::SendPacket(bool _reliable, const char *_dataStr)
 	enet_host_flush(m_host);
 	// enet_host_service()
 }
+
 
 void ENet::BroadcastPacket(bool _reliable, const char * _dataStr)
 {
@@ -291,12 +304,20 @@ void ENet::ReceiveData(const ENetEvent &event)
 
 	PacketData packetData;
 	packetData.Deserialize(event.packet->data, event.packet->dataLength);
-	if( packetData.IsValid() )
-		printf("A packet of length %u containing %s was received from %s on channel %u.\n",
+	if (packetData.IsValid()) {
+		/*printf("A packet of length %u containing %s was received from %s on channel %u.\n",
 			event.packet->dataLength,
 			packetData.GetContent(),
 			sender,
-			event.channelID);
+			event.channelID);*/
+
+		json::JSON _converted = json::JSON::Load(packetData.GetContent());
+		glm::vec3 _pos = glm::vec3(_converted["x"].ToFloat(), _converted["y"].ToFloat(), _converted["z"].ToFloat());
+		int _id = _converted["id"].ToInt();
+		PlayerManager::Instance()->UpdatePosition(_id, _pos);
+
+	}
+		
 	else
 		printf("An invalid packet of length %u was received from %s on channel %u.\n",
 			event.packet->dataLength,

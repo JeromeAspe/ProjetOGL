@@ -12,8 +12,15 @@ public :
 
 	TransformSync(bool _isMine, ENet* _reseau);
 	TransformSync(bool _isMine, ENet* _reseau,GameObject* _object);
+	TransformSync(bool _isMine, int _id,ENet* _reseau,GameObject* _object);
 
 	void Update();
 	void UpdatePosition();
+	void UpdateElement(glm::vec3 _position);
+
+	ENet* GetReseau();
+	int GetID();
+	
+
 };
 

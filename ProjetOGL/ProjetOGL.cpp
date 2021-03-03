@@ -69,7 +69,7 @@ int main( void )
 	do {
 		_engine->Update();
 		networkLayer->Update();
-		PlayerManager::Instance()->UpdatePosition(1, vec3(0));
+		//PlayerManager::Instance()->UpdatePosition(1, vec3(0));
 	}
 	while (glfwGetKey(_engine->GetWindow(), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(_engine->GetWindow()) == 0);

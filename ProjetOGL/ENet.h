@@ -1,6 +1,6 @@
 #pragma once
 #include <enet/enet.h>
-
+#include "glm/glm.hpp"
 #include "ClientInfo.h"
 
 
@@ -49,6 +49,7 @@ protected:
 public :
 	void Update();
 
+	std::string ConvertPacket(glm::vec3 _pos,int id);
 	void SendPacket(bool _reliable, const char *_dataStr);
 
 	void BroadcastPacket(bool _reliable, const char *_dataStr);
