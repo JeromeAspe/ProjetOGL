@@ -209,6 +209,8 @@ add_executable(ProjetOGL
 	ProjetOGL/Bounds.cpp
 	ProjetOGL/PacketDataJSon.cpp
 	ProjetOGL/PacketDataJSon.h
+	ProjetOGL/TransformSync.cpp
+	ProjetOGL/TransformSync.h
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
