@@ -16,7 +16,6 @@ void PacketDataJSon::SetJsonContent(const char* _object)
 	/*json::JSON _json = json::JSON(_object);
 	std::cout << _json.ToString() << std::endl;
 	m_Content = _json.ToString();*/
-	std::cout << _object << std::endl;
 	m_Content = _object;
 	m_Type = Type::JSon;
 	m_Valid = true;

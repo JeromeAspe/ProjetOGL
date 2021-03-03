@@ -1,6 +1,6 @@
 #include "PlayerManager.h"
 
-PlayerManager PlayerManager::instance = PlayerManager();
+PlayerManager* PlayerManager::instance = new PlayerManager();
 
 PlayerManager::PlayerManager() {
 
@@ -9,9 +9,14 @@ PlayerManager::~PlayerManager() {
 
 }
 
-PlayerManager PlayerManager::Instance()
+PlayerManager* PlayerManager::Instance()
 {
 	return instance;
+}
+
+void PlayerManager::Add(TransformSync* _sync)
+{
+	players.push_back(_sync);
 }
 
 void PlayerManager::UpdatePosition(int _id, glm::vec3 _pos)

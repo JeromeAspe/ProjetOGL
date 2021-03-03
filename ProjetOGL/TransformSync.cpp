@@ -1,5 +1,6 @@
 #include "TransformSync.h"
 #include "PacketDataJSon.h"
+#include "PlayerManager.h"
 #include "json.hpp"
 #include <random>
 #include <ctime>
@@ -16,6 +17,7 @@ TransformSync::TransformSync(bool _isMine, ENet* _reseau, GameObject* _object) :
 	reseau = _reseau;
 	srand(time(NULL));
 	photonID = static_cast<float>(std::rand()) * static_cast<float>(std::rand());
+	PlayerManager::Instance()->Add(this);
 }
 
 void TransformSync::Update()
@@ -33,8 +35,8 @@ void TransformSync::UpdatePosition()
 		if (_packet.IsValid()) {
 			unsigned int  taille = 0;
 			void* data = _packet.Serialize(taille);
-			_packet.Deserialize(data, taille);
-			printf("%s", _packet.GetContent());
+			//_packet.Deserialize(data, taille);
+			//printf("%s", _packet.GetContent());
 		}
 	}
 }
