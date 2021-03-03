@@ -22,9 +22,6 @@ glm::mat4 getProjectionMatrix(){
 
 glm::vec3 getMovementVector()
 {
-	if (glm::length(MovementVector) > .1f) {
-		return glm::normalize(MovementVector) * .1f;
-	}
 	return MovementVector;
 }
 
@@ -102,9 +99,10 @@ void computeMatricesFromInputs(){
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		position -= right * deltaTime * speed;
 	}
-	MovementVector = vec3(0);
+	//MovementVector = vec3(0);
 	//Player Movement
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+	
+	/*if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 		MovementVector.z += .1;
 	}
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
@@ -115,7 +113,23 @@ void computeMatricesFromInputs(){
 	}
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 		MovementVector.x += .1;
+	}*/
+
+	MovementVector = vec3(0, 0, 0);
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+		MovementVector.z = -1;
 	}
+	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		MovementVector.z = 1;
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+		MovementVector.x = 1;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+		MovementVector.x = -1;
+	}
+
+
 
 	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
 

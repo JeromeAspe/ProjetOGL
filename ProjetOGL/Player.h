@@ -7,8 +7,8 @@ class Player : public MonoBehaviour
 {
 private: 
 	std::string nickname = "";
-	float playerSpeed = 15.0f;
-	float frotemments = 0.05f;
+	float playerSpeed = 2.0f;
+	float frotemments = 0.1f;
 	glm::vec3 speedVector = glm::vec3(0);
 public:
 	Player();
