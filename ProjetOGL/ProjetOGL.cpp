@@ -22,6 +22,7 @@ using namespace glm;
 #include "Player.h"
 #include "Sphere.h"
 #include "Cube.h"
+#include "TransformSync.h"
 
 #include "ENet.h"
 #include <iostream>
@@ -62,6 +63,7 @@ int main( void )
 	Sphere* _a = new Sphere("raimbow.DDS", vec3(1, 0, 0), vec3(1, 0, 0), vec3(0.25));
 
 	Player* _player = new Player(_a);
+	TransformSync* _sync = new TransformSync(true, networkLayer, _a);
 	Arena* _arena = new Arena();
 	do {
 		_engine->Update();

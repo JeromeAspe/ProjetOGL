@@ -50,6 +50,11 @@ Transform* GameObject::GetTransform()
 	return transform;
 }
 
+int GameObject::GetIndexEngine()
+{
+	return indexEngine;
+}
+
 void GameObject::Update(const GLuint& _matrixID)
 {
 	transform->UpdateTransform(_matrixID);

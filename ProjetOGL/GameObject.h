@@ -28,6 +28,7 @@ public:
 #pragma region Getters
 	Renderer* GetRenderer();
 	Transform* GetTransform();
+	int GetIndexEngine();
 #pragma endregion
 
 	void Update(const GLuint& _matrixID);

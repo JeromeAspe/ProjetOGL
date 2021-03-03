@@ -211,6 +211,7 @@ add_executable(ProjetOGL
 	ProjetOGL/PacketDataJSon.h
 	ProjetOGL/TransformSync.cpp
 	ProjetOGL/TransformSync.h
+	ProjetOGL/json.hpp
 	common/shader.cpp
 	common/shader.hpp
 	common/controls.cpp
