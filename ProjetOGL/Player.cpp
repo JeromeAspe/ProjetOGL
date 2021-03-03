@@ -39,7 +39,7 @@ void Player::Update()
 	else if (_inputVector.x > -1 && _inputVector.x < 1 && speedVector.x != 0)
 		_speedVector.x += speedVector.x > 0 ? -frotemments : frotemments;
 
-	speedVector += _speedVector * deltaTime * 0.2f * playerSpeed;
+	speedVector += _speedVector * 0.05f * playerSpeed;
 
 	speedVector.x = glm::clamp(speedVector.x, -0.5f, 0.5f);
 	speedVector.z = glm::clamp(speedVector.z, -0.5f, 0.5f);
@@ -47,7 +47,12 @@ void Player::Update()
 	//speedVector += ((_inputVector * playerSpeed) * deltaTime);
 	//speedVector -= (speedVector * frotemments);
 	glm::vec3 _finalPosition = gameObject->GetTransform()->GetPosition() + speedVector;
-	gameObject->GetTransform()->SetPosition(_finalPosition);
+
+	std::cout << _finalPosition.x << " / " << _finalPosition.z << std::endl;
+	gameObject->GetTransform()->SetFinalPosition(_finalPosition);
+
+
+
 	SetCameraPosition(_finalPosition);
 	lastTime = currentTime;
 }

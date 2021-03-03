@@ -21,4 +21,6 @@ public:
 	Collider();
 	Collider(GameObject* _attachedObejct);
 
+	bool IsInCollison();
+
 };
