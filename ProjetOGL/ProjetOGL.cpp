@@ -65,6 +65,7 @@ int main( void )
 	Arena* _arena = new Arena();
 	do {
 		_engine->Update();
+		networkLayer->Update();
 	}
 	while (glfwGetKey(_engine->GetWindow(), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(_engine->GetWindow()) == 0);
