@@ -1,7 +1,7 @@
 #pragma once
 #include "MonoBehaviour.h"
 #include "ENet.h"
-class TransformSync : 
+class TransformSync : MonoBehaviour
 {
 public :
 
