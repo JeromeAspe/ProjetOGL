@@ -241,7 +241,7 @@ void ENet::Update()
 	enet_uint32 timeOutValue = 0; // that many ms before time out
 	if (enet_host_service(m_host, &event, timeOutValue) > 0)
 	{
-		fprintf(stderr, "Event RECEIVED !!\n");
+		//fprintf(stderr, "Event RECEIVED !!\n");
 
 		switch (event.type)
 		{
@@ -315,6 +315,9 @@ void ENet::ReceiveData(const ENetEvent &event)
 		glm::vec3 _pos = glm::vec3(_converted["x"].ToFloat(), _converted["y"].ToFloat(), _converted["z"].ToFloat());
 		int _id = _converted["id"].ToInt();
 		PlayerManager::Instance()->UpdatePosition(_id, _pos);
+		if (IsServer()) {
+			BroadcastPacket(false, packetData.GetContent());
+		}
 
 	}
 		

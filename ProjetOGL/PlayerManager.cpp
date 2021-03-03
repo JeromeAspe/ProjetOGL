@@ -26,8 +26,11 @@ void PlayerManager::UpdatePosition(int _id, glm::vec3 _pos)
 	{
 		
 		//printf("%d\n", players[i]->GetID());
-		if (players[i]->GetID() == _id)
+		if (players[i]->GetID() == _id )
 		{
+			if (players[i]->IsMine()) {
+				return;
+			}
 			players[i]->UpdateElement(_pos);
 			return;
 		}

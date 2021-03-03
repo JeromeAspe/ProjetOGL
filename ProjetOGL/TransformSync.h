@@ -20,6 +20,7 @@ public :
 
 	ENet* GetReseau();
 	int GetID();
+	bool IsMine();
 	
 
 };

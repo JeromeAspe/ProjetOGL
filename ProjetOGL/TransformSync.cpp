@@ -72,3 +72,8 @@ int TransformSync::GetID()
 {
 	return photonID;
 }
+
+bool TransformSync::IsMine()
+{
+	return isMine;
+}
