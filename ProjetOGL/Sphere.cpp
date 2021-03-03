@@ -1,11 +1,11 @@
 #include "Sphere.h"
 
-Sphere::Sphere(std::string _objectPath, Renderer* _renderer, Transform* _transform) : GameObject(_objectPath, _renderer, _transform)
+Sphere::Sphere(Renderer* _renderer, Transform* _transform) : GameObject("Sphere.obj", _renderer, _transform)
 {
 	collider = new SphereCollider();
 }
 
-Sphere::Sphere(std::string _objectPath, Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale) : GameObject(_objectPath, _renderer, _position, _rotation, _scale)
+Sphere::Sphere(Renderer* _renderer, glm::vec3 _position, glm::vec3 _rotation, glm::vec3 _scale) : GameObject("Sphere.obj", _renderer, _position, _rotation, _scale)
 {
 	collider = new SphereCollider();
 }

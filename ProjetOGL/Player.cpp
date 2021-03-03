@@ -20,12 +20,10 @@ void Player::Update()
 	double currentTime = glfwGetTime();
 	float deltaTime = float(currentTime - lastTime);
 
-
 	speedVector += ((getMovementVector() * playerSpeed) * deltaTime);
 	speedVector -= (speedVector * frotemments);
 	glm::vec3 _finalPosition = gameObject->GetTransform()->GetPosition() + speedVector;
 	gameObject->GetTransform()->SetPosition(_finalPosition);
-
 
 	lastTime = currentTime;
 }

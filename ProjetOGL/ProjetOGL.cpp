@@ -24,14 +24,17 @@ using namespace glm;
 #include "Engine.h"
 #include "Arena.h"
 #include "Player.h"
+#include "Sphere.h"
+#include "Cube.h"
 
 int main( void )
 {
 	
 	Engine* _engine = new Engine();
 	Renderer* _renderer = new Renderer(_engine->GetTextureID(), "raimbow.DDS");
-	GameObject* _a = new GameObject("cube.obj", _renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
-	GameObject* _b = new GameObject("cube.obj", _renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	Cube* _b = new Cube(_renderer, vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+	Sphere* _a = new Sphere(_renderer, vec3(1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
+
 	Player* _player = new Player(_a);
 	Arena* _arena = new Arena();
 	
