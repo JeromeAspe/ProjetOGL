@@ -45,6 +45,7 @@ public:
 	void AddGameObject(GameObject* _object, int& _index);
 	void RemoveGameObject(int& _index);
 	GLuint& GetTextureID();
+	GLFWwindow* GetWindow();
 
 	static Engine* GetInstance();
 };

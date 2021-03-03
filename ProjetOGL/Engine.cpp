@@ -86,13 +86,9 @@ void Engine::Init()
 
 void Engine::Update()
 {
-	do {
 		matrixID = glGetUniformLocation(programID, "MVP");
 		UpdateBehaviours();
-		UpdateObjects();
-	}
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
+		UpdateObjects();	
 	
 }
 
@@ -138,6 +134,11 @@ void Engine::RemoveGameObject(int& _index)
 GLuint& Engine::GetTextureID()
 {
 	return textureID;
+}
+
+GLFWwindow* Engine::GetWindow()
+{
+	return window;
 }
 
 Engine* Engine::GetInstance()
