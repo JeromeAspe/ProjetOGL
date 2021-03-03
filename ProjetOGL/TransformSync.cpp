@@ -65,7 +65,7 @@ void TransformSync::UpdatePosition()
 
 void TransformSync::UpdateElement(glm::vec3 _position)
 {
-	gameObject->GetTransform()->SetPosition(_position);
+	gameObject->GetTransform()->SetFinalPosition(_position);
 }
 
 void TransformSync::UpdateTimer()
