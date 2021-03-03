@@ -112,6 +112,7 @@ void ENet::DisconnectClient()
 		{
 		case ENET_EVENT_TYPE_RECEIVE:
 			enet_packet_destroy(event.packet);
+			printf("%s\n", event.packet->data);
 			break;
 
 		case ENET_EVENT_TYPE_DISCONNECT:

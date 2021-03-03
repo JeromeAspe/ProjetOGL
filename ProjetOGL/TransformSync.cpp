@@ -35,8 +35,12 @@ void TransformSync::UpdatePosition()
 		if (_packet.IsValid()) {
 			unsigned int  taille = 0;
 			void* data = _packet.Serialize(taille);
-			//_packet.Deserialize(data, taille);
-			//printf("%s", _packet.GetContent());
+			
+			reseau->BroadcastPacket(false, _packet.GetContent());
+			_packet.Deserialize(data, taille);
+			//printf("%s\n", _packet.GetContent());
+			
+			
 		}
 	}
 }
