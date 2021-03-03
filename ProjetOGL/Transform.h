@@ -11,6 +11,8 @@ protected:
 	glm::vec3 m_rotation = glm::vec3(0);
 	glm::vec3 m_scale = glm::vec3(0);
 
+	glm::vec3 m_finalPosition = glm::vec3(0);
+
 public:
 #pragma region Constructors
 	Transform(const glm::vec3& _position, const glm::vec3& _rotation, const glm::vec3& _scale);

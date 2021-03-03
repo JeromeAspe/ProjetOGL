@@ -77,7 +77,7 @@ void TransformSync::UpdateTimer()
 	float deltaTime = float(currentTime - lastTime);
 	timer += deltaTime;
 	
-	if (timer > 0.5f) {
+	if (timer > 0.2f) {
 		printf("%f\n", timer);
 		UpdatePosition();
 		timer = 0;

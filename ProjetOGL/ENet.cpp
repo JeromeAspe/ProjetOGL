@@ -67,7 +67,7 @@ int ENet::ConnectClient()
 
 	// Connection to localHost, obviously
 	// some work needed if the server is not local host :)
-	enet_address_set_host(&address, "192.168.1.145");
+	enet_address_set_host(&address, "127.0.0.1");
 	address.port = 1234;
 
 	/* Initiate the connection, allocating the two channels 0 and 1. */
