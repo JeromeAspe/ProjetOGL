@@ -4,10 +4,10 @@ Collider::Collider()
 {
 }
 
-Collider::Collider(GameObject* _attachedObejct)
+Collider::Collider(GameObject* _attachedObejct,float _sizeMultiplier)
 {
 	attachedObject = _attachedObejct;
-	bounds = new Bounds(attachedObject->GetTransform()->GetPosition(), attachedObject->GetTransform()->GetScale());
+	bounds = new Bounds(attachedObject->GetTransform()->GetPosition(), attachedObject->GetTransform()->GetScale(), _sizeMultiplier);
 	//ColliderManager::Instance()->Add(this);
 }
 void Collider::UpdateBounds()

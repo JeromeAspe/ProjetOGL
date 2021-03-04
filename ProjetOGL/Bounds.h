@@ -9,6 +9,7 @@ class Bounds
 protected:
 	glm::vec3 center = glm::vec3(0, 0, 0);
 	glm::vec3 size = glm::vec3(0, 0, 0);
+	float sizeMultiplier = 1.f;
 
 public:
 	/*----Getter----*/
@@ -20,8 +21,9 @@ public:
 	inline void SetSize(glm::vec3 _size) { size = _size; };
 
 	/*----Constructor----*/
-	Bounds(const glm::vec3 _center, const glm::vec3 _size);
+	Bounds(const glm::vec3 _center, const glm::vec3 _size,float _sizeMulitplier);
 
+	inline float GetSizeMultiplier() { return sizeMultiplier; };
 	/*----Methods----*/
 	bool Intersects(const Bounds& _bounds);
 };

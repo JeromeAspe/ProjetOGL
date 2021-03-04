@@ -4,6 +4,6 @@
 class SphereCollider : public Collider
 {
 public :
-	SphereCollider(GameObject* _object);
+	SphereCollider(GameObject* _object, float _sizeMultiplier);
 };
 

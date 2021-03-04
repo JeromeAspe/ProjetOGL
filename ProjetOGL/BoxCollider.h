@@ -4,6 +4,6 @@
 class BoxCollider : public Collider
 {
 public:
-	BoxCollider(GameObject* _object);
+	BoxCollider(GameObject* _object,float _sizeMultiplier);
 };
 
