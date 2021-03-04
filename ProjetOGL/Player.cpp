@@ -3,7 +3,10 @@
 #include <iostream>
 
 Player::Player() : MonoBehaviour() {}
-Player::Player(GameObject* _gameObject) : MonoBehaviour(_gameObject) {}
+Player::Player(GameObject* _gameObject, Collider* _collider) : MonoBehaviour(_gameObject) {
+
+	collider = _collider;
+}
 Player::Player(std::string _nickname, float _speed) : MonoBehaviour() {
 	nickname = _nickname;
 	playerSpeed = _speed;
