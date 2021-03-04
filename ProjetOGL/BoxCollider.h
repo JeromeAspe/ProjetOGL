@@ -3,6 +3,7 @@
 
 class BoxCollider : public Collider
 {
-
+public:
+	BoxCollider(GameObject* _object);
 };
 

@@ -3,6 +3,7 @@
 
 class SphereCollider : public Collider
 {
-
+public :
+	SphereCollider(GameObject* _object);
 };
 
