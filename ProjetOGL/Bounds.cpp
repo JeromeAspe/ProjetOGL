@@ -10,8 +10,6 @@ Bounds::Bounds(const glm::vec3 _center, const glm::vec3 _size,float _sizeMultipl
 
 bool Bounds::Intersects(const Bounds& _bounds)
 {
-	printf("Mine x => %f z => %f\n", size.x, size.z);
-	printf("Ohter x => %f y => %f z => %f\n", _bounds.GetSize().x, _bounds.GetSize().y, _bounds.GetSize().z);
 	glm::vec3 _otherSize = _bounds.GetSize() * _bounds.sizeMultiplier;
 	glm::vec3 _mineSize = size * sizeMultiplier;
 

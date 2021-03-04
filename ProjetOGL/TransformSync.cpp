@@ -38,11 +38,6 @@ void TransformSync::UpdatePosition()
 	if (isMine) {
 		PacketDataJSon _packet;
 		std::string _msg = reseau->ConvertPacket(gameObject->GetTransform()->GetPosition(), photonID);
-		/*json::JSON _json = json::Object();
-		_json["x"] = gameObject->GetTransform()->GetPosition().x;//json::Array(gameObject->GetTransform()->GetPosition().x, gameObject->GetTransform()->GetPosition().y, gameObject->GetTransform()->GetPosition().z, photonID);
-		_json["y"] = gameObject->GetTransform()->GetPosition().y;
-		_json["z"] = gameObject->GetTransform()->GetPosition().z;
-		_json["id"] = photonID;*/
 		_packet.SetJsonContent(_msg.c_str());
 		if (_packet.IsValid()) {
 			unsigned int  taille = 0;
@@ -53,12 +48,6 @@ void TransformSync::UpdatePosition()
 			if (reseau->IsServer()) {
 				reseau->BroadcastPacket(false, _packet.GetContent());
 			}
-			
-			//_packet.Deserialize(data, taille);
-			//json::JSON _converted = json::JSON::Load(_packet.GetContent());
-			//printf("%d\n", _converted["id"]);
-			
-			
 		}
 	}
 }
@@ -78,7 +67,6 @@ void TransformSync::UpdateTimer()
 	timer += deltaTime;
 	
 	if (timer > 0.2f) {
-		printf("%f\n", timer);
 		UpdatePosition();
 		timer = 0;
 	}
