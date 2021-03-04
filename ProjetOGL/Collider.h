@@ -21,6 +21,8 @@ public:
 	Collider();
 	Collider(GameObject* _attachedObejct);
 
+	void UpdateBounds();
+
 	bool IsInCollison();
 
 };

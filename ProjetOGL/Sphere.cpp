@@ -28,3 +28,10 @@ Sphere::~Sphere()
 {
 	delete(collider);
 }
+
+void Sphere::Update(const GLuint& _matrixID)
+{
+	transform->UpdateTransform(_matrixID);
+	collider->UpdateBounds();
+	renderer->Update();
+}

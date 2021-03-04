@@ -28,3 +28,10 @@ Cube::~Cube()
 {
 	delete(collider);
 }
+
+void Cube::Update(const GLuint& _matrixID)
+{
+	transform->UpdateTransform(_matrixID);
+	collider->UpdateBounds();
+	renderer->Update();
+}

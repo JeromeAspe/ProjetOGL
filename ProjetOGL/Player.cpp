@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Engine.h"
 #include <common/controls.hpp>
 #include <iostream>
 
@@ -49,9 +50,10 @@ void Player::Update()
 
 	//speedVector += ((_inputVector * playerSpeed) * deltaTime);
 	//speedVector -= (speedVector * frotemments);
+	if (Engine::GetInstance()->IsInCollision(collider))
+		speedVector = -speedVector * 1.f;
 	glm::vec3 _finalPosition = gameObject->GetTransform()->GetPosition() + speedVector;
 
-	std::cout << _finalPosition.x << " / " << _finalPosition.z << std::endl;
 	gameObject->GetTransform()->SetFinalPosition(_finalPosition);
 
 

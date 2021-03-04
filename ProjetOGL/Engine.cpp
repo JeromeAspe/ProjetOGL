@@ -2,7 +2,7 @@
 GLFWwindow* window;
 Engine* Engine::instance = nullptr;
 Engine::Engine() {
-	
+
 	instance = this;
 	Init();
 }
@@ -86,10 +86,10 @@ void Engine::Init()
 
 void Engine::Update()
 {
-		matrixID = glGetUniformLocation(programID, "MVP");
-		UpdateBehaviours();
-		UpdateObjects();	
-	
+	matrixID = glGetUniformLocation(programID, "MVP");
+	UpdateBehaviours();
+	UpdateObjects();
+
 }
 
 void Engine::UpdateBehaviours() {
@@ -101,7 +101,7 @@ void Engine::UpdateBehaviours() {
 void Engine::UpdateObjects()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+
 	for (int i = 0; i < gameobjects.size(); i++) {
 		glUseProgram(programID);
 		gameobjects[i]->Update(matrixID);
@@ -114,13 +114,13 @@ bool Engine::IsInCollision(Collider* _collider)
 	for (size_t i = 0; i < colliders.size(); i++)
 	{
 		Collider* _tmp = colliders[i];
-		if (_tmp == _collider)break;
-		if (_collider->GetBounds().Intersects(_tmp->GetBounds()))
-			return true;
+		if (_tmp != _collider)
+			if (_collider->GetBounds().Intersects(_tmp->GetBounds()))
+				return true;
 	}
 	return false;
 }
-void Engine::AddMonoBehaviours(MonoBehaviour* _behaviour, int & _index) {
+void Engine::AddMonoBehaviours(MonoBehaviour* _behaviour, int& _index) {
 	_behaviour->Start();
 	monobehaviours.push_back(_behaviour);
 	_index = monobehaviours.size();
@@ -132,7 +132,7 @@ void Engine::RemoveMonoBehaviour(int& _index) {
 
 void Engine::AddGameObject(GameObject* _object, int& _index)
 {
-	
+
 	gameobjects.push_back(_object);
 	_index = gameobjects.size();
 }
@@ -144,7 +144,7 @@ void Engine::AddCollider(Collider* _collider)
 
 void Engine::RemoveGameObject(int& _index)
 {
-	 //TODO
+	//TODO
 }
 
 GLuint& Engine::GetTextureID()

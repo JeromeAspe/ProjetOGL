@@ -22,6 +22,7 @@ public :
 	~Cube();
 #pragma endregion
 
+	void Update(const GLuint& _matrixID);
 
 };
 

@@ -21,5 +21,8 @@ public :
 #pragma region Destructors
 	~Sphere();
 #pragma endregion
+
+	void Update(const GLuint& _matrixID);
+
 };
 

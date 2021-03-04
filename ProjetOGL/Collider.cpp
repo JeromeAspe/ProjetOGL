@@ -10,6 +10,11 @@ Collider::Collider(GameObject* _attachedObejct)
 	bounds = new Bounds(attachedObject->GetTransform()->GetPosition(), attachedObject->GetTransform()->GetScale());
 	//ColliderManager::Instance()->Add(this);
 }
+void Collider::UpdateBounds()
+{
+	bounds->SetCenter(attachedObject->GetTransform()->GetPosition());
+	bounds->SetSize(attachedObject->GetTransform()->GetScale());
+}
 
 bool Collider::IsInCollison() {
 	//if(ColliderManager::Instance()->IsInCollision(this)

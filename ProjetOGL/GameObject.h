@@ -31,7 +31,7 @@ public:
 	int GetIndexEngine();
 #pragma endregion
 
-	void Update(const GLuint& _matrixID);
+	virtual void Update(const GLuint& _matrixID);
 	//TODO 
 	void AddComponent();
 };

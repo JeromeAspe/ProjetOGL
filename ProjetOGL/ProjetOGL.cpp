@@ -61,7 +61,7 @@ int main( void )
 	Engine* _engine = new Engine();
 	//Renderer* _renderer = new Renderer(_engine->GetTextureID(), "raimbow.DDS");
 	Cube* _b = new Cube("raimbow.DDS", vec3(-1, 0, 0), vec3(1, 0, 0), vec3(1, 1, 1));
-	Sphere* _a = new Sphere("raimbow.DDS", vec3(1, 0, 0), vec3(1, 0, 0), vec3(0.25));
+	Sphere* _a = new Sphere("raimbow.DDS", vec3(1, 1, 0), vec3(1, 0, 0), vec3(0.25));
 
 	Player* _player = new Player(_a,_a->GetCollider());
 	TransformSync* _sync = new TransformSync(true, networkLayer, _a);
