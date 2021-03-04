@@ -1,5 +1,6 @@
 #pragma once
 #include "MonoBehaviour.h"
+#include "Collider.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
@@ -26,6 +27,7 @@ private:
 
 	std::vector<MonoBehaviour*> monobehaviours;
 	std::vector<GameObject*> gameobjects;
+	std::vector<Collider*> colliders;
 	GLuint programID;
 	GLuint matrixID;
 	GLuint textureID;
@@ -43,6 +45,7 @@ public:
 	void AddMonoBehaviours(MonoBehaviour* _behaviour, int& _index);
 	void RemoveMonoBehaviour(int& _index);
 	void AddGameObject(GameObject* _object, int& _index);
+	void AddCollider(Collider* _collider);
 	void RemoveGameObject(int& _index);
 	GLuint& GetTextureID();
 	GLFWwindow* GetWindow();

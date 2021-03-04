@@ -126,6 +126,11 @@ void Engine::AddGameObject(GameObject* _object, int& _index)
 	_index = gameobjects.size();
 }
 
+void Engine::AddCollider(Collider* _collider)
+{
+	colliders.push_back(_collider);
+}
+
 void Engine::RemoveGameObject(int& _index)
 {
 	 //TODO
