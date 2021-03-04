@@ -109,6 +109,17 @@ void Engine::UpdateObjects()
 	glfwSwapBuffers(window);
 	glfwPollEvents();
 }
+bool Engine::IsInCollision(Collider* _collider)
+{
+	for (size_t i = 0; i < colliders.size(); i++)
+	{
+		Collider* _tmp = colliders[i];
+		if (_tmp == _collider)break;
+		if (_collider->GetBounds().Intersects(_tmp->GetBounds()))
+			return true;
+	}
+	return false;
+}
 void Engine::AddMonoBehaviours(MonoBehaviour* _behaviour, int & _index) {
 	_behaviour->Start();
 	monobehaviours.push_back(_behaviour);

@@ -42,6 +42,7 @@ public:
 	void Update();
 	void UpdateBehaviours();
 	void UpdateObjects();
+	bool IsInCollision(Collider* _collider);
 	void AddMonoBehaviours(MonoBehaviour* _behaviour, int& _index);
 	void RemoveMonoBehaviour(int& _index);
 	void AddGameObject(GameObject* _object, int& _index);
