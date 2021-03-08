@@ -20,6 +20,7 @@ public:
 	/*----Constructor----*/
 	Collider();
 	Collider(GameObject* _attachedObejct,float _sizeMultiplier);
+	~Collider();
 
 	void UpdateBounds();
 

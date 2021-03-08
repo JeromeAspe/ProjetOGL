@@ -61,6 +61,7 @@ void Player::Update()
 	SetCameraPosition(_finalPosition);
 	lastTime = currentTime;
 }
-Player::~Player() {
-
+Player::~Player() 
+{
+	delete(collider);
 }

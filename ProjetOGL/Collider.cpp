@@ -10,6 +10,11 @@ Collider::Collider(GameObject* _attachedObejct,float _sizeMultiplier)
 	bounds = new Bounds(attachedObject->GetTransform()->GetPosition(), attachedObject->GetTransform()->GetScale(), _sizeMultiplier);
 	//ColliderManager::Instance()->Add(this);
 }
+Collider::~Collider()
+{
+	delete(attachedObject);
+	delete(bounds);
+}
 void Collider::UpdateBounds()
 {
 	bounds->SetCenter(attachedObject->GetTransform()->GetPosition());
